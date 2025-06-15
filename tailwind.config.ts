@@ -36,6 +36,10 @@ export default {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
 				},
+        success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
+				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
 					foreground: 'hsl(var(--muted-foreground))'
@@ -63,10 +67,15 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+        DEFAULT: 'var(--radius)', // For 'rounded'
+        md: 'var(--radius)',    // For 'rounded-md'
+        // sm, lg, xl, etc. will use Tailwind defaults unless specified.
+        // The existing sm, md, lg were relative in a way that might be confusing with the new --radius.
+        // PRD only specified 'rounded-md' as default and 'rounded-full'.
 			},
 			keyframes: {
 				'accordion-down': {
