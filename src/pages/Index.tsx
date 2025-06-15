@@ -1,14 +1,28 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import MainAppLayout from '../components/layout/MainAppLayout';
+import StatsGrid from '../components/Dashboard/StatsGrid';
+import LeadReasonsGrid from '../components/Dashboard/LeadReasonsGrid';
 
-const Index = () => {
+/**
+ * DashboardPage serves as the main overview for the Leads Dashboard.
+ * It utilizes MainAppLayout to provide the overall page structure including
+ * sidebar and header, and then populates the main content area with 
+ * StatsGrid and LeadReasonsGrid components.
+ */
+const DashboardPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <MainAppLayout>
+      {/* 
+        Container for the main content sections of the dashboard.
+        Uses flexbox to stack components vertically with a consistent gap.
+        The padding for this content area is handled by MainAppLayout's <main> element (p-6).
+      */}
+      <div className="flex flex-col gap-6 md:gap-8">
+        <StatsGrid />
+        <LeadReasonsGrid />
       </div>
-    </div>
+    </MainAppLayout>
   );
 };
 
-export default Index;
+export default DashboardPage;
